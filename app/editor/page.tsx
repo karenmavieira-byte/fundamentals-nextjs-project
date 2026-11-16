@@ -6,52 +6,56 @@ import { useState } from "react";
 export default function Editor() {
   const [text, setText] = useState("");
 
-  // Uppercase function
+  const wordCount =
+    text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
+  const characterCount = text.length;
+
   const handleUppercase = () => {
     setText(text.toUpperCase());
   };
 
-  // Lowercase function
   const handleLowerCase = () => {
     setText(text.toLowerCase());
   };
 
-  // Clear button
   const handleClear = () => {
     setText("");
   };
 
-  // word count
-  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
-
-  // characters count
-  const characterCount = text.length;
-
-
   return (
-    <main>
+    <main className="editor-container">
       <h1>Text Editor</h1>
 
+      <p className="editor-description">
+        Write, edit and transform your text.
+      </p>
+
       <textarea
+        className="editor-textarea"
+        placeholder="Start typing here..."
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
 
-      <p>Words: {wordCount}</p>
+      <div className="editor-stats">
+        <p>Words: {wordCount}</p>
+        <p>Characters: {characterCount}</p>
+      </div>
 
-      <p>Characters: {characterCount}</p>
+      <div className="editor-buttons">
+        <button onClick={handleUppercase}>
+          UPPERCASE
+        </button>
 
-      <button onClick={handleUppercase}>
-        UPPERCASE
-      </button>
+        <button onClick={handleLowerCase}>
+          LOWERCASE
+        </button>
 
-      <button onClick={handleLowerCase}>
-        LOWERCASE
-      </button>
-
-      <button onClick={handleClear}>
-        CLEAR
-      </button>
+        <button onClick={handleClear}>
+          CLEAR
+        </button>
+      </div>
     </main>
   );
-};
+}

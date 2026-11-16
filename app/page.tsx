@@ -1,37 +1,96 @@
+
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Fundamentals of Next.js - Project</h1>
+    <main className="home-container">
+      <header className="home-header">
+        <p className="home-label">NEXT.JS COURSE PROJECT</p>
 
-      <p>
-        This course covered the fundamentals of Next.js, including React,
-        routing, styling, API routes, server-side rendering, static site
-        generation, state management, testing, deployment, and optimization.
-      </p>
+        <h1>Fundamentals of Next.js</h1>
 
-    <section>
-      <h2>Calculator</h2>
+        <p className="home-intro">
+          This project includes three small applications built
+          with Next.js: a calculator, a text editor and a quiz.
+          Each one demonstrates what I learned during the course.
+        </p>
+      </header>
 
-      <p>
-        A simple calculator that allows users to add, subtract, multiply, and divide numbers. It will be implemented using React state and event handling.
-      </p>
-    </section>
-      
-    <section>
-      <h2>Text Editor</h2>
+      <section className="project-section">
+        <h2>Explore the applications</h2>
 
-      <p>
-        A text editor where users can type text, change it to uppercase or lowercase, clear the text, and count words and characters. It will be implemented using React state and event handling.
-      </p>
-    </section>
+        <div className="project-grid">
 
-    <section>
-      <h2>Quiz</h2>
+          <article className="project-card">
+            <span className="project-number">01</span>
 
-      <p>
-        A three-question multiple-choice quiz where users can submit their answers and see how many answers they got correct. It will be implemented using React state, event handling, and conditional rendering.
-      </p>
-    </section>
+            <h3>Calculator</h3>
+
+            <p>
+              A simple calculator for adding, subtracting,
+              multiplying and dividing numbers.
+            </p>
+
+            <p className="project-tech">
+              Uses React state and event handlers.
+            </p>
+
+            <Link href="/calculator" className="project-link">
+              Open Calculator →
+            </Link>
+          </article>
+
+          <article className="project-card">
+            <span className="project-number">02</span>
+
+            <h3>Text Editor</h3>
+
+            <p>
+              Write text, change it to uppercase or lowercase,
+              clear it and see the word and character counts.
+            </p>
+
+            <p className="project-tech">
+              Uses React state and JavaScript string methods.
+            </p>
+
+            <Link href="/editor" className="project-link">
+              Open Text Editor →
+            </Link>
+          </article>
+
+          <article className="project-card">
+            <span className="project-number">03</span>
+
+            <h3>Software Engineering Quiz</h3>
+
+            <p>
+              Answer three multiple-choice questions and
+              see your score when you submit your answers.
+            </p>
+
+            <p className="project-tech">
+              Uses React state and conditional rendering.
+            </p>
+
+            <Link href="/quiz" className="project-link">
+              Start Quiz →
+            </Link>
+          </article>
+
+        </div>
+      </section>
+
+      <section className="about-section">
+        <h2>About the project</h2>
+
+        <p>
+          This project was created for the Fundamentals of Next.js
+          course. It gave me the opportunity to practise building
+          pages, working with React components, handling user input
+          and styling applications with CSS.
+        </p>
+      </section>
     </main>
   );
 }
