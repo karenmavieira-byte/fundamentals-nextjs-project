@@ -21,6 +21,13 @@ export default function Editor() {
     setText("");
   };
 
+  // word count
+  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
+  // characters count
+  const characterCount = text.length;
+
+
   return (
     <main>
       <h1>Text Editor</h1>
@@ -29,6 +36,10 @@ export default function Editor() {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
+
+      <p>Words: {wordCount}</p>
+
+      <p>Characters: {characterCount}</p>
 
       <button onClick={handleUppercase}>
         UPPERCASE
